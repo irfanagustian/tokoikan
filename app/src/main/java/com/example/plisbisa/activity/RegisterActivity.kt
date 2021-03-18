@@ -43,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         pb_register.visibility =View.VISIBLE
-        ApiConfig.instanceRetrofit.register(edt_nama.text.toString(), edt_email.text.toString(), edt_password.text.toString()).
+        ApiConfig.instanceRetrofit.register(edt_nama.text.toString(), edt_email.text.toString(), edt_phone.text.toString(), edt_password.text.toString()).
                 enqueue(object : Callback<ResponModel>{
                     override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                         pb_register.visibility =View.GONE

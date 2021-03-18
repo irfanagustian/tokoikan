@@ -51,6 +51,11 @@ class LoginActivity : AppCompatActivity() {
                 if (respon.sucsess==1){
                     val s = SharedPrefe(this@LoginActivity)
                     s.setStatusLogin(true)
+                    s.setUser(respon.user)
+//                    s.setString(s.nama, respon.user.name)
+//                    s.setString(s.email, respon.user.email)
+//                    s.setString(s.phone, respon.user.phone)
+
                     val inten = Intent(this@LoginActivity, MainActivity::class.java)
                     inten.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(inten)

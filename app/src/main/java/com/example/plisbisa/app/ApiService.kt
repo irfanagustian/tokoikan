@@ -13,6 +13,7 @@ interface ApiService {
     fun register(
         @Field("name") name: String,
         @Field("email") email: String,
+        @Field("phone") phone: String,
         @Field("password") password: String
     ): retrofit2.Call<ResponModel>
 
