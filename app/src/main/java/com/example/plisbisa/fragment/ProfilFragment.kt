@@ -19,7 +19,6 @@ class ProfilFragment : Fragment() {
     lateinit var s:SharedPrefe
     lateinit var btnLogout:TextView
     lateinit var tvNama:TextView
-    lateinit var tvEmail:TextView
     lateinit var tvPhone:TextView
 
 
@@ -36,6 +35,9 @@ class ProfilFragment : Fragment() {
 
         btnLogout.setOnClickListener {
             s.setStatusLogin(false)
+            val inten = Intent(activity, MainActivity::class.java)
+            inten.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(inten)
         }
 
         setData()
@@ -53,7 +55,6 @@ class ProfilFragment : Fragment() {
 
         val user = s.getUser()!!
         tvNama.text = user.name
-        tvEmail.text = user.email
         tvPhone.text = user.phone
 
     }
@@ -61,7 +62,6 @@ class ProfilFragment : Fragment() {
     private fun init(view: View) {
         btnLogout = view.findViewById(R.id.btn_logout)
         tvNama = view.findViewById(R.id.tv_nama)
-        tvEmail = view.findViewById(R.id.tv_email)
         tvPhone = view.findViewById(R.id.tv_phone)
     }
 

@@ -21,16 +21,25 @@ import com.example.plisbisa.helper.SharedPrefe
 
 
 class LoginActivity : AppCompatActivity() {
+
+    lateinit var s:SharedPrefe
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        s = SharedPrefe(this)
+
         btn_login.setOnClickListener {
             login()
         }
+        btn_toregister.setOnClickListener{
+            val i = Intent(this, RegisterActivity::class.java)
+            startActivity(i)
+        }
     }
 
-    fun login(){
+    public fun login(){
         if (edt_email.text.isEmpty()){
             edt_email.error = "kolom e-mail tidak boleh kosong"
             edt_email.requestFocus()

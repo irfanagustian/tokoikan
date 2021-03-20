@@ -1,19 +1,28 @@
 package com.example.plisbisa.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.plisbisa.MainActivity
 import com.example.plisbisa.R
 import com.example.plisbisa.app.ApiConfig
+import com.example.plisbisa.helper.SharedPrefe
 import com.example.plisbisa.model.ResponModel
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_register.edt_email
+import kotlinx.android.synthetic.main.activity_register.edt_password
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
+
+    lateinit var s: SharedPrefe
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -49,9 +58,8 @@ class RegisterActivity : AppCompatActivity() {
                         pb_register.visibility =View.GONE
                         val respon = response.body()!!
 
-                        if (respon.sucsess==1){
-                            Toast.makeText(this@RegisterActivity, "Selamat Datang "+
-                            respon.user.name, Toast.LENGTH_SHORT).show()
+                        if (respon.success==1){
+                            Toast.makeText(this@RegisterActivity, "Akun Berhasil Dibuat Silahkan Melakukan login", Toast.LENGTH_SHORT).show()
                         }else{
                             Toast.makeText(this@RegisterActivity, "Error: "+respon.message,
                                     Toast.LENGTH_SHORT).show()
@@ -67,4 +75,5 @@ class RegisterActivity : AppCompatActivity() {
 
                 })
     }
+
 }

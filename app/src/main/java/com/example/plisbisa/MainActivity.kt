@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.plisbisa.activity.BaruActivity
 import com.example.plisbisa.activity.LoginActivity
 import com.example.plisbisa.fragment.HomeFragment
 import com.example.plisbisa.fragment.ProfilFragment
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 if(s.getStatusLogin()){
                     selectedFragment = ProfilFragment()
                 } else{
-                    startActivity(Intent(this, BaruActivity::class.java))
+                    startActivity(Intent(this, LoginActivity::class.java))
                 }
             }
         }
